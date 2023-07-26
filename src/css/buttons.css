@@ -1,0 +1,21 @@
+.StyledButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #63d471;
+  color: white;
+  font-weight: 500;
+  font-size: 1em;
+  border: 1px solid #63a46c;
+  border-radius: 4px;
+  width: 1.8em;
+  height: 1.8em;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+}
+.StyledButton:active {
+  opacity: 80%;
+}

@@ -1,0 +1,39 @@
+.CardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 5px;
+  background-color: white;
+  border: 1px solid #a0816c;
+  border-radius: 5px;
+}
+.CardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  width: 140px;
+  padding: 4px;
+  border-bottom: 1px solid #a0816c;
+}
+.CardMiddle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  padding: 4px;
+}
+.CardBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 140px;
+  font-weight: 500;
+  padding: 4px;
+  border-top: 1px solid #a0816c;
+}
+.Image {
+  width: 80px;
+  height: 80px;
+}

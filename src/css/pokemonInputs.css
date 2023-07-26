@@ -1,0 +1,14 @@
+.Tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
+}
+.TabInput {
+  background-color: white;
+  border: 1px solid #63a46c;
+  border-radius: 4px;
+  height: 1.4em;
+  width: 180px;
+  font-size: 1.2em;
+}

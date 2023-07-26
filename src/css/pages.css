@@ -1,0 +1,14 @@
+.TabPages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 120px;
+}
+.PageTracker {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #5d9f66;
+  color: white;
+  width: 100%;
+}
