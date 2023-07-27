@@ -6,25 +6,21 @@ import PokemonInputs from "./pokemonInputs.jsx";
 import PokemonCard from "./pokemonCard";
 import Pages from "./pages.jsx";
 
-
 import { useState } from "react";
-import { SearchPokemon } from "../hooks/SearchPokemon";
 import { useGetPokemons } from "../hooks/useGetPokemons";
-
 
 function Pokedex() {
   const [pokemon, setPokemon] = useState([]);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(25);
-  const [pokeSearch, setPokeSearch] = useState("");
 
   const offset = limit - 24;
   const maxPages = 42;
 
   function NextPage(){
     if(page !== maxPages){
-    setPage(page + 1);
-    setLimit(limit + 24);
+      setPage(page + 1);
+      setLimit(limit + 24);
     }
   }
   function PreviousPage(){
@@ -33,15 +29,14 @@ function Pokedex() {
       setLimit(limit - 24);
     }
   }
-
+  
   useGetPokemons(offset, limit, setPokemon);
-  SearchPokemon(pokeSearch, setPokeSearch);
-    
+
     return (
     <div className="Background">
       <img src={logo} alt="Pokemon logo" className="Logo" />
       <div className="SearchTab">
-        <PokemonInputs />
+        <PokemonInputs searchPokemon={setPokemon} initialState={pokemon}/>
         <Pages 
         currentPage={page} 
         maxPages={maxPages} 
@@ -51,6 +46,7 @@ function Pokedex() {
       </div>
 
       <div className="Border">
+          <React.Suspense fallback="loading...">
         <div className="PokemonContainer">
             {pokemon.map((pokemon, key) => (
               <PokemonCard
@@ -61,6 +57,7 @@ function Pokedex() {
               />
             ))}
         </div>
+            </React.Suspense>
       </div>
     </div>
   );
