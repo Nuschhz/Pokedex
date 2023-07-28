@@ -7,6 +7,7 @@
 }
 .Background {
   background-color: #dbfeb8;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,8 +40,8 @@
   height: 99.5%;
 }
 .Logo {
-  width: 340px;
-  height: 100px;
+  width: 280px;
+  height: 80px;
 }
 .SearchTab {
   display: flex;
