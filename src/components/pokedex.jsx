@@ -6,7 +6,7 @@ import PokemonInputs from "./pokemonInputs.jsx";
 import PokemonCard from "./pokemonCard";
 import Pages from "./pages.jsx";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useGetPokemons } from "../hooks/useGetPokemons";
 
 function Pokedex() {
@@ -16,6 +16,13 @@ function Pokedex() {
 
   const offset = limit - 24;
   const maxPages = 42;
+
+
+  const previousPokemon = useRef();
+ 
+    useEffect(() => {
+        previousPokemon.current = pokemon;
+    }, [pokemon]);
 
   function NextPage(){
     if(page !== maxPages){
@@ -32,11 +39,11 @@ function Pokedex() {
   
   useGetPokemons(offset, limit, setPokemon);
 
-    return (
+  return (
     <div className="Background">
       <img src={logo} alt="Pokemon logo" className="Logo" />
       <div className="SearchTab">
-        <PokemonInputs searchPokemon={setPokemon} initialState={pokemon}/>
+        <PokemonInputs searchPokemon={setPokemon} initialState={previousPokemon.current}/>
         <Pages 
         currentPage={page} 
         maxPages={maxPages} 
