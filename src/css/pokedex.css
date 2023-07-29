@@ -11,8 +11,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 .Border {
   background-color: #63d471;
@@ -35,8 +35,8 @@
   justify-content: space-evenly;
   border-radius: 4px;
   border: 1px solid #a0816c;
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
 }
 .Logo {
   width: 280px;
@@ -44,6 +44,6 @@
 }
 .SearchTab {
   display: flex;
-  width: 40vw;
+  min-width: 40vw;
   justify-content: space-between;
 }
