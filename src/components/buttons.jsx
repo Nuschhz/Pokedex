@@ -1,8 +1,8 @@
 import "../css/buttons.css";
 
-function Button({ children = "", fn = () => {} }) {
+function Button({ children = "", fn = () => {}, onMouseEnter }) {
   return (
-    <button className="StyledButton" onClick={fn}>
+    <button className="StyledButton" onClick={fn} onMouseEnter={onMouseEnter}>
       {children}
     </button>
   );

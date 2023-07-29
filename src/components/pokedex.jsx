@@ -17,12 +17,11 @@ function Pokedex() {
   const offset = limit - 24;
   const maxPages = 42;
 
-
   const previousPokemon = useRef();
- 
-    useEffect(() => {
-        previousPokemon.current = pokemon;
-    }, [pokemon]);
+
+  useEffect(() => {
+    previousPokemon.current = pokemon;
+  }, [pokemon]);
 
   function NextPage(){
     if(page !== maxPages){

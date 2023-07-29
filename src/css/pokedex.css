@@ -7,7 +7,6 @@
 }
 .Background {
   background-color: #dbfeb8;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,24 +19,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  border-radius: 12px;
+  padding: 8px;
+  border-radius: 6px;
   border: 1px solid #63a46c;
   margin: 5px;
-  min-width: 42vw;
+  width: 40vw;
   height: 80vh;
 }
 .PokemonContainer {
+  background-color: #e8ded1;
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(6, 1fr);
-  background-color: #e8ded1;
   align-items: center;
   justify-content: space-evenly;
   border-radius: 4px;
   border: 1px solid #a0816c;
-  width: 99.5%;
-  height: 99.5%;
+  width: 100%;
+  height: 100%;
 }
 .Logo {
   width: 280px;
@@ -45,6 +44,6 @@
 }
 .SearchTab {
   display: flex;
-  min-width: 42vw;
+  width: 40vw;
   justify-content: space-between;
 }
