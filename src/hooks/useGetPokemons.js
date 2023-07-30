@@ -1,7 +1,12 @@
 import axios from "axios";
 import { useCallback, useEffect } from "react";
 
-export const useGetPokemons = (offset, limit, fn = () => {}) => {
+export const useGetPokemons = (
+  offset,
+  limit,
+  fn = () => {},
+  page = () => {}
+) => {
   const getPokemons = useCallback(() => {
     let endpoints = [];
     for (let i = offset; i < limit; i++) {
@@ -9,9 +14,12 @@ export const useGetPokemons = (offset, limit, fn = () => {}) => {
     }
     axios
       .all(endpoints.map((endpoint) => axios.get(endpoint)))
-      .then((response) => fn(response))
+      .then((response) => {
+        fn(response);
+        page(response);
+      })
       .catch((err) => console.log(err));
-  }, [fn, limit, offset]);
+  }, [fn, limit, offset, page]);
 
   useEffect(() => {
     getPokemons();
