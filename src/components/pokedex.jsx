@@ -25,6 +25,7 @@ function Pokedex() {
       setLimit(limit + 24);
     }
   }
+  
   function PreviousPage(){
     if(page > 1){
       setPage(page - 1);
@@ -38,12 +39,15 @@ function Pokedex() {
     <div className="Background">
       <img src={logo} alt="Pokemon logo" className="Logo" />
       <div className="SearchTab">
-        <PokemonInputs searchPokemon={setPokemon} initialState={pokemonPage}/>
+        <PokemonInputs 
+          searchPokemon={setPokemon} 
+          initialState={pokemonPage}
+        />
         <Pages 
-        currentPage={page} 
-        maxPages={maxPages} 
-        previousPage={PreviousPage} 
-        nextPage={NextPage} 
+          currentPage={page} 
+          maxPages={maxPages} 
+          previousPage={PreviousPage} 
+          nextPage={NextPage} 
         />
       </div>
         <div className="Border">

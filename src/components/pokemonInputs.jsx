@@ -22,7 +22,7 @@ function PokemonInputs({ searchPokemon = () => {}, initialState}) {
             toast.error(`O pokemon "${pokemon}" não foi encontrado.`);
           }
         });
-  };
+      };
 
   const onChangeHandler = (e) => {
     setSearch(e.target.value);
@@ -30,6 +30,7 @@ function PokemonInputs({ searchPokemon = () => {}, initialState}) {
       searchPokemon(initialState);
     }
   }
+  
   const keyDownHandler = (e) => {
     if(e.key === "Enter"){
       searchHandler(search.toLowerCase());
