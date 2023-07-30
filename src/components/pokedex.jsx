@@ -17,11 +17,11 @@ function Pokedex() {
   const offset = limit - 24;
   const maxPages = 42;
 
-  const previousPokemon = useRef();
+  const previousPage = useRef();
 
   useEffect(() => {
-    previousPokemon.current = pokemon;
-  }, [pokemon]);
+    previousPage.current = pokemon;
+  }, [page, pokemon]);
 
   function NextPage(){
     if(page !== maxPages){
@@ -42,7 +42,7 @@ function Pokedex() {
     <div className="Background">
       <img src={logo} alt="Pokemon logo" className="Logo" />
       <div className="SearchTab">
-        <PokemonInputs searchPokemon={setPokemon} initialState={previousPokemon.current}/>
+        <PokemonInputs searchPokemon={setPokemon} initialState={previousPage.current}/>
         <Pages 
         currentPage={page} 
         maxPages={maxPages} 
@@ -52,7 +52,6 @@ function Pokedex() {
       </div>
 
       <div className="Border">
-          <React.Suspense fallback="loading...">
         <div className="PokemonContainer">
             {pokemon.map((pokemon, key) => (
               <PokemonCard
@@ -63,7 +62,7 @@ function Pokedex() {
               />
             ))}
         </div>
-            </React.Suspense>
+
       </div>
     </div>
   );
