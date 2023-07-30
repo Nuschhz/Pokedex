@@ -20,6 +20,7 @@ function Pokedex() {
   const previousPage = useRef();
 
   useEffect(() => {
+    if(pokemon.length > 1)
     previousPage.current = pokemon;
   }, [page, pokemon]);
 
