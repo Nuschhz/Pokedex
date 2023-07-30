@@ -50,20 +50,20 @@ function Pokedex() {
         nextPage={NextPage} 
         />
       </div>
-
-      <div className="Border">
-        <div className="PokemonContainer">
-            {pokemon.map((pokemon, key) => (
-              <PokemonCard
-                key={key}
-                pokemonName={pokemon.data.name}
-                pokemonNumber={pokemon.data.id}
-                types={pokemon.data.types}
-              />
-            ))}
+      <React.Suspense fallback="loading...">
+        <div className="Border">
+          <div className="PokemonContainer">
+              {pokemon.map((pokemon, key) => (
+                <PokemonCard
+                  key={key}
+                  pokemonName={pokemon.data.name}
+                  pokemonNumber={pokemon.data.id}
+                  types={pokemon.data.types}
+                />
+              ))}
+          </div>
         </div>
-
-      </div>
+      </React.Suspense>
     </div>
   );
 }
