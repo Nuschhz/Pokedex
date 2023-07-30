@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 102vh;
+  height: 100vh;
 }
 .Border {
   background-color: #63d471;
@@ -43,7 +43,7 @@
 .Logo {
   width: 280px;
   height: 80px;
-  transform: translateY(30px);
+  transform: translateY(20px);
 }
 .SearchTab {
   display: flex;
