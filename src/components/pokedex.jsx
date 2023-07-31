@@ -50,7 +50,7 @@ function Pokedex() {
           nextPage={NextPage} 
         />
       </div>
-        <div className="Border">
+        <div>
           <div className="PokemonContainer">
               {pokemon.map((pokemon, key) => (
                 <PokemonCard
