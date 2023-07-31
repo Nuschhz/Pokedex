@@ -3,7 +3,7 @@ import logo from "../images/logo.png";
 
 import React from "react";
 import PokemonInputs from "./pokemonInputs.jsx";
-import PokemonCard from "./pokemonCard";
+import PokemonCard from "./pokemonCard.jsx";
 import Pages from "./pages.jsx";
 
 import { useState } from "react";
