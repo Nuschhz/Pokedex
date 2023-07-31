@@ -23,13 +23,19 @@ function Pokedex() {
     if(page !== maxPages){
       setPage(page + 1);
       setLimit(limit + 24);
+    }else if(page === maxPages){
+      setPage(1);
+      setLimit(25);
     }
   };
 
   const PreviousPage = () => {
-    if(page > 1){
+    if(page !== 1){
       setPage(page - 1);
       setLimit(limit - 24);
+    }else if(page === 1){
+      setPage(maxPages)
+      setLimit(1009)
     }
   };
 
