@@ -18,20 +18,20 @@ function Pokedex() {
 
   const offset = limit - 24;
   const maxPages = 42;
-  
-  function NextPage(){
+
+  const NextPage = () =>{
     if(page !== maxPages){
       setPage(page + 1);
       setLimit(limit + 24);
     }
-  }
+  };
   
-  function PreviousPage(){
+  const PreviousPage = () =>{
     if(page > 1){
       setPage(page - 1);
       setLimit(limit - 24);
     }
-  }
+  };
   
   useGetPokemons(offset, limit, setPokemon, setPokemonPage);
   
