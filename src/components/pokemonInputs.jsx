@@ -16,10 +16,13 @@ function PokemonInputs({ searchPokemon = () => {}, initialState}) {
   const searchHandler = (pokemon = "") => {
         axios
         .get(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
-        .then((response) => searchPokemon([response]))
+        .then((response) => {
+          toast.success(`${pokemon[0].toUpperCase() + pokemon.slice(1)}`)
+          searchPokemon([response])
+        })
         .catch((err)=>{
           if(err){
-            toast.error(`O pokemon "${pokemon}" não foi encontrado.`);
+            toast.error(`O pokemon "${pokemon[0].toUpperCase() + pokemon.slice(1)}" não foi encontrado.`);
           }
         });
       };
@@ -46,7 +49,7 @@ function PokemonInputs({ searchPokemon = () => {}, initialState}) {
         onChange={(e)=>onChangeHandler(e)}
         onKeyDown={(e)=>keyDownHandler(e)}
         />
-      <Button children={<FaSearch />} fn={()=>searchHandler(search.toLowerCase())}/>
+      <Button children={<FaSearch />} onClick={()=>searchHandler(search.toLowerCase())}/>
       <ToastContainer/>
     </div>
   );
