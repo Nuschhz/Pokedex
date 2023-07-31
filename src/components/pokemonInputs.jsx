@@ -22,7 +22,7 @@ function PokemonInputs({ searchPokemon = () => {}, initialState}) {
         })
         .catch((err)=>{
           if(err){
-            toast.error(`O pokemon "${pokemon[0].toUpperCase() + pokemon.slice(1)}" não foi encontrado.`);
+            toast.error(`O pokemon "${pokemon}" não foi encontrado.`);
           }
         });
       };
