@@ -29,7 +29,7 @@ function Pokedex() {
       gap: "5px"
   },
   scroll:{
-    overflow: "hidden"
+    overflow: "clip"
   }
 }:{
     card:{

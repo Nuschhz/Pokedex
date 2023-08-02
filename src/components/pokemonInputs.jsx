@@ -44,7 +44,7 @@ function PokemonInputs({ searchPokemon = () => {}, initialState}) {
     <div className="Tab">
       <input 
         className="TabInput" 
-        placeholder="Busque Nome ou ID" 
+        placeholder="Pokemon" 
         value={search} 
         onChange={(e)=>onChangeHandler(e)}
         onKeyDown={(e)=>keyDownHandler(e)}
