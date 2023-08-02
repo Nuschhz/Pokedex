@@ -3,10 +3,9 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 0 5px;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.1);
 }
 .CardTop {
   display: flex;
@@ -16,27 +15,28 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 140px;
-  padding: 4px;
+  width: 90%;
+  max-width: 160px;
+  padding: 4px 0;
   border-bottom: 1px solid #000;
 }
 .CardMiddle {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 140px;
+  width: 90%;
   padding: 4px;
 }
 .CardBottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 140px;
+  width: 90%;
   font-weight: 500;
-  padding: 4px;
+  padding: 4px 0;
   border-top: 1px solid #000;
 }
 .Image {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 }

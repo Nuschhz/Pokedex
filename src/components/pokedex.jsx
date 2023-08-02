@@ -1,12 +1,12 @@
 import "../css/pokedex.css";
 import logo from "../images/logo.png";
 
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import PokemonInputs from "./pokemonInputs.jsx";
 import PokemonCard from "./pokemonCard.jsx";
 import Pages from "./pages.jsx";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useGetPokemons } from "../hooks/useGetPokemons";
 
 function Pokedex() {
@@ -15,9 +15,16 @@ function Pokedex() {
   const [pokemonPage,setPokemonPage] = useState([]);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(25);
+  const [width,setWidth] = useState(0);
 
   const offset = limit - 24;
   const maxPages = 42;
+
+  const searchContainerWidthRef = useRef();
+
+  useLayoutEffect(()=>{
+    setWidth(searchContainerWidthRef.current.offsetWidth)
+  },[pokemon])
 
   const NextPage = () => {
     if(page !== maxPages){
@@ -40,7 +47,7 @@ function Pokedex() {
   };
 
   const window = 
-    <div className="PokemonContainerDesk">
+    <div className="PokemonContainerDesk" ref={searchContainerWidthRef}>
       {pokemon.map((pokemon, key) => (
         <PokemonCard
           key={key}
@@ -70,7 +77,7 @@ function Pokedex() {
   return (
     <div className="BackgroundDesk">
       <img src={logo} alt="Pokemon logo" className="Logo" />
-      <div className="SearchTabDesk">
+      <div className="SearchTabDesk" style={{width: `${width}px`}}>
         {inputs}
         {pageSelector}
       </div>
