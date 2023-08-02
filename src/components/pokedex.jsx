@@ -22,18 +22,36 @@ function Pokedex() {
   const breakpoint = 780
 
   const resize = width > breakpoint ?
-  {grid:{gridTemplateRows: "repeat(4,1fr)", gridTemplateColumns: "repeat(6, 1fr)", gap: "5px"},background:{height: "100vh"}}:
-  {grid:{gridTemplateRows: "repeat(12,1fr)", gridTemplateColumns: "repeat(2, 1fr)", gap: "10px"},background:{height: "250vh", overflowY: "scroll"}}
+  {
+    grid:{
+      gridTemplateRows: "repeat(4,1fr)", 
+      gridTemplateColumns: "repeat(6, 1fr)", 
+      gap: "5px"
+    },
+    background:{
+      height: "100vh"
+    }
+  }:
+  {
+    grid:{
+      gridTemplateRows: "repeat(12,1fr)", 
+      gridTemplateColumns: "repeat(2, 1fr)", 
+      gap: "10px"
+    },
+    background:{
+      height: "250vh", 
+      overflowY: "scroll"
+    }
+  }
 
   const offset = limit - 24;
   const maxPages = 42;
-
 
   const searchContainerWidthRef = useRef();
 
   useLayoutEffect(()=>{
     setSearchWidth(searchContainerWidthRef.current.offsetWidth);
-  },[width]);
+  },[pokemon, width]);
 
   const NextPage = () => {
     if(page !== maxPages){
