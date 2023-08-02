@@ -8,6 +8,7 @@ import Pages from "./pages.jsx";
 
 import { useState, useRef } from "react";
 import { useGetPokemons } from "../hooks/useGetPokemons";
+import { useViewport } from "../hooks/useViewport";
 
 function Pokedex() {
 
@@ -15,16 +16,24 @@ function Pokedex() {
   const [pokemonPage,setPokemonPage] = useState([]);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(25);
-  const [width,setWidth] = useState(0);
+  const [searchWidth,setSearchWidth] = useState(0);
+  const {width} = useViewport();
+
+  const breakpoint = 780
+
+  const resize = width > breakpoint ?
+  {grid:{gridTemplateRows: "repeat(4,1fr)", gridTemplateColumns: "repeat(6, 1fr)", gap: "5px"},background:{height: "100vh"}}:
+  {grid:{gridTemplateRows: "repeat(12,1fr)", gridTemplateColumns: "repeat(2, 1fr)", gap: "10px"},background:{height: "250vh", overflowY: "scroll"}}
 
   const offset = limit - 24;
   const maxPages = 42;
 
+
   const searchContainerWidthRef = useRef();
 
   useLayoutEffect(()=>{
-    setWidth(searchContainerWidthRef.current.offsetWidth)
-  },[pokemon])
+    setSearchWidth(searchContainerWidthRef.current.offsetWidth);
+  },[width]);
 
   const NextPage = () => {
     if(page !== maxPages){
@@ -41,13 +50,13 @@ function Pokedex() {
       setPage(page - 1);
       setLimit(limit - 24);
     }else if(page === 1){
-      setPage(maxPages)
-      setLimit(1009)
+      setPage(maxPages);
+      setLimit(1009);
     }
   };
 
   const window = 
-    <div className="PokemonContainerDesk" ref={searchContainerWidthRef}>
+    <div className="PokemonContainer" ref={searchContainerWidthRef} style={resize.grid}>
       {pokemon.map((pokemon, key) => (
         <PokemonCard
           key={key}
@@ -75,9 +84,9 @@ function Pokedex() {
   useGetPokemons(offset, limit, setPokemon, setPokemonPage);
   
   return (
-    <div className="BackgroundDesk">
+    <div className="Background" style={resize.background}>
       <img src={logo} alt="Pokemon logo" className="Logo" />
-      <div className="SearchTabDesk" style={{width: `${width}px`}}>
+      <div className="SearchTab" style={{width: `${searchWidth}px`}}>
         {inputs}
         {pageSelector}
       </div>
