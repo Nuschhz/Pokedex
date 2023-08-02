@@ -23,26 +23,25 @@ function Pokedex() {
 
   const resize = width > breakpoint ?
   {
-    grid:{
+    card:{
       gridTemplateRows: "repeat(4,1fr)", 
       gridTemplateColumns: "repeat(6, 1fr)", 
       gap: "5px"
-    },
-    background:{
-      height: "100vh"
-    }
-  }:
-  {
-    grid:{
+  },
+  scroll:{
+    overflow: "hidden"
+  }
+}:{
+    card:{
       gridTemplateRows: "repeat(12,1fr)", 
       gridTemplateColumns: "repeat(2, 1fr)", 
-      gap: "10px"
-    },
-    background:{
-      height: "250vh", 
+      gap: "10px",
+  },
+  scroll:{
+      overflow: "hidden",
       overflowY: "scroll"
-    }
   }
+}
 
   const offset = limit - 24;
   const maxPages = 42;
@@ -51,7 +50,7 @@ function Pokedex() {
 
   useLayoutEffect(()=>{
     setSearchWidth(searchContainerWidthRef.current.offsetWidth);
-  },[pokemon, width]);
+  },[width, pokemon]);
 
   const NextPage = () => {
     if(page !== maxPages){
@@ -74,7 +73,7 @@ function Pokedex() {
   };
 
   const window = 
-    <div className="PokemonContainer" ref={searchContainerWidthRef} style={resize.grid}>
+    <div className="PokemonContainer" ref={searchContainerWidthRef} style={resize.card}>
       {pokemon.map((pokemon, key) => (
         <PokemonCard
           key={key}
@@ -102,13 +101,13 @@ function Pokedex() {
   useGetPokemons(offset, limit, setPokemon, setPokemonPage);
   
   return (
-    <div className="Background" style={resize.background}>
+    <div className="Background">
       <img src={logo} alt="Pokemon logo" className="Logo" />
       <div className="SearchTab" style={{width: `${searchWidth}px`}}>
         {inputs}
         {pageSelector}
       </div>
-        <div>
+        <div style = {resize.scroll}>
           {window}
         </div>
     </div>
