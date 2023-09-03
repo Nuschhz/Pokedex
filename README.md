@@ -10,5 +10,7 @@ something using **API calls** and with a responsive layout.
 ## Built With
 
 - Javascript
-- ReactJS
 - Css
+- ReactJS
+- axios
+- React-toastify
