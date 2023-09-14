@@ -14,3 +14,7 @@ something using **API calls** and with a responsive layout.
 - ReactJS
 - axios
 - React-toastify
+
+### API
+
+PokeApi: <https://pokeapi.co>
